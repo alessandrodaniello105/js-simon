@@ -1,3 +1,6 @@
+//ELEMENTS
+const containerSimonNumbers = document.querySelector('ul');
+
 // 1. Creo un array che conterrà i numeri generati
 const numRandom = [];
 
@@ -9,16 +12,21 @@ let counterNum = 0;
 
 while (counterNum < numTarget ) {
 
-  num = randomGen();
+  let simonNum = randomGen();
   
   // 2. ...con verifica
-  verifyRandomNumber();
+  verifyRandomNumber(simonNum);
 
+  // printer(num);
+
+  
 };
+// 4. Stampo i numeri in pagina in un contenitore
+printer2();
 
 console.log(numRandom);
 
-function verifyRandomNumber() {
+function verifyRandomNumber(num) {
 
   if (numRandom.includes(num)) {
 
@@ -27,8 +35,26 @@ function verifyRandomNumber() {
   } else {
     counterNum++;
 
+    // 3. Pusho i numeri random (da ricordare) nell'array
     numRandom.push(num);
 
   }
-  
-}
+
+};
+
+// function printer(num) {
+//   containerSimonNumbers.innerHTML += ' ' + num;
+// };
+
+function printer2() {
+
+  let counter = 0;
+
+  for (let i = 0; i < numRandom.length; i++) {
+    counter++
+    containerSimonNumbers.innerHTML += `
+    <li class = "list-group-item">${numRandom[i]}</li> 
+    `;
+  };
+
+};
