@@ -61,11 +61,26 @@ function printer2() {
 
 
 // 5. Creo un timer di 5s che farà scomparire il contenitore
-const timer = setInterval(function() {
+// let bibi = 0;
+// const timerSimon = setInterval(function() {
+//   containerSimonNumbers.style.display = "none";
+//   bibi++
+
+//   clearInterval(timerSimon);
+//   console.log(bibi); 
+// }, 500);
+
+let bibi = 0;
+setTimeout(function() { 
   containerSimonNumbers.style.display = "none";
-}, 5000);
+  bibi++
+  console.log(bibi); 
 
 
+}, 500);
+
+
+// const timer
 
 
 
