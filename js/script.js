@@ -6,6 +6,7 @@ const finalMessage          = 'I numeri che hai indovinato sono:'
 // 1. Creo un array che conterrà i numeri generati
 const numRandom = [];
 
+// 6. Creo un array per i numeri scritti dall'utente
 const numUser = [];
 
 // 2. Creo una funzione di generazione randomica di 5 numeri...
@@ -81,7 +82,7 @@ function startGameForNow() {
 
 
 
-
+// 7. Creo un funzione che con un prompt chiede all'utente di inserire i 5 numeri da ricordare, uno alla volta
 function promptNumbers() {
 
   let userChances = 5;
@@ -113,7 +114,9 @@ function checkUserNumbers() {
   for (let userEl = 0; userEl < numUser.length; userEl++){
 
     userNum = numUser[userEl];
+
     console.log(userNum);
+
   };
 
 };
@@ -139,8 +142,14 @@ function checkUserNumbers() {
 
 
 
+// 8. Creo una variabile messaggio e un counter per quantificare i numeri indovinati
 
+// 9. Creo una funzione che ad ogni prompt verifica se il numero inserito è presente nei numeri random
+//se sì lo includo nel messaggio e aumento il counter
 
+// 10. Stampo il messaggio (il totale di numeri indovinati e quali) in pagina
+
+// 11. Creo un pulsante di avvio gioco
 
 
 
