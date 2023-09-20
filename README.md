@@ -2,7 +2,7 @@ Simon Says
 ===
 
 1. Creo un array che conterrà i numeri generati
-1. Creo una funzione di generazione randomica di 5 numeri
+1. Creo una funzione di generazione randomica di 5 numeri, con verifica
 1. Pusho i numeri random (da ricordare) nell'array
 1. Stampo i numeri in pagina in un contenitore
 1. Creo un timer di 5s che farà scomparire il contenitore
