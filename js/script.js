@@ -1,35 +1,90 @@
 //ELEMENTS
 const containerSimonNumbers = document.querySelector('ul');
 // const outputUserNumbers     = document.querySelector('p');
-const outputUserNumbers     = document.getElementById('user-numbers');
-const finalMessage          = 'I numeri che hai indovinato sono:'
+const outputUserNumbers     = document.querySelector('.user-numbers-container');
+const userNumbersList       = document.getElementById('user-numbers');
+const finalMessage          = 'I numeri che hai indovinato sono:';
+const mainWrapper           = document.querySelector('.main-wrapper');
 
 // 1. Creo un array che conterrà i numeri generati
 const numRandom = [];
 
-// 6. Creo un array per i numeri scritti dall'utente
+// 7. Creo un array per i numeri scritti dall'utente
 const numUser = [];
 
-// 2. Creo una funzione di generazione randomica di 5 numeri...
-const randomGen = () => Math.ceil(Math.random() * 10);
+// 9. Creo una variabile messaggio e un counter per quantificare i numeri indovinati
+let message;
+let counterRightNumbers = 0;
 
 const numTarget = 5;
 let counterNum = 0;
 
-while (counterNum < numTarget ) {
 
-  let simonNum = randomGen();
+
+
+// 12. Creo un pulsante di avvio gioco
+const buttonStart = document.createElement('button');
+
+buttonStart.innerText = 'Start Game';
+buttonStart.classList.add('position-absolute');
+buttonStart.style.top = '100px';
+buttonStart.style.left = '50%';
+buttonStart.style.transform = 'translateX(-50%)';
+
+mainWrapper.append(buttonStart);
+
+
+buttonStart.addEventListener('click', function() {
+  this.classList.add('d-none');
+  simonNumberGenerator();
+
+  // 5. Creo un timer di 5s che farà scomparire il contenitore
+
+  setTimeout(function() {
+    
+    containerSimonNumbers.style.display = "none";
+
+  }, 5000);
+
+
+  // 6. Creo un timer di 5.1s che farà comparire il prompt
+  setTimeout(function() {
+
+    promptNumbers();
+
+    checkUserNumbers();
   
-  // 2. ...con verifica
-  verifyRandomNumber(simonNum);
+    printResults();
+  }, 5100);
 
-  // printer(num);
 
+});
+
+
+
+
+// FUNCTIONS
+
+// 2. Creo una funzione di generazione randomica di 5 numeri...
+const randomGen = () => Math.ceil(Math.random() * 10);
+
+function simonNumberGenerator() {
+
+  while (counterNum < numTarget ) {
+
+    let simonNum = randomGen();
+    
+    // 2. ...con verifica
+    verifyRandomNumber(simonNum);
+      
+  };
   
+  
+  // 4. Stampo i numeri in pagina in un contenitore
+  printer();
+
+
 };
-
-// 4. Stampo i numeri in pagina in un contenitore
-printer2();
 
 
 function verifyRandomNumber(num) {
@@ -48,11 +103,7 @@ function verifyRandomNumber(num) {
 
 };
 
-// function printer(num) {
-//   containerSimonNumbers.innerHTML += ' ' + num;
-// };
-
-function printer2() {
+function printer() {
 
   let counter = 0;
 
@@ -66,49 +117,33 @@ function printer2() {
 };
 
 
-// 5. Creo un timer di 5s che farà scomparire il contenitore
-setTimeout(startGameForNow, 2500); //2.5s for testing
-
-
-function startGameForNow() {
-
-  containerSimonNumbers.style.display = "none";
-
-  promptNumbers();
-
-  checkUserNumbers();
-
-};
-
-
-
-
-// 7. Creo un funzione che con un prompt chiede all'utente di inserire i 5 numeri da ricordare, uno alla volta
+// 8. Creo un funzione che con un prompt chiede all'utente di inserire i 5 numeri da ricordare, uno alla volta
 function promptNumbers() {
 
-  let userChances = 5;
   let counterIteration = 0;
 
-  while (counterIteration < userChances) {
+  while (counterIteration < numTarget) {
     
     counterIteration++;
 
     let input = parseInt(prompt('Inserisci SOLO uno dei numeri che ricordi'));
-    
+
+
+    // 10. Creo una funzione che ad ogni prompt verifica se il numero inserito è presente nei numeri random
+    //      se sì lo includo nel messaggio e aumento il counter
+
     if (numRandom.includes(input) && (!numUser.includes(input))) {
-      
+
+      counterRightNumbers++;
+
       numUser.push(input);
 
     }
 
-    
-    // printerResults(input, counterIteration);
-    
   };
   
-  // console.log(numUser);
-  
 }
+
 
 function checkUserNumbers() {
 
@@ -122,9 +157,12 @@ function checkUserNumbers() {
 
 };
 
+
+// 11. Stampo il messaggio (il totale di numeri indovinati e quali) in pagina
 function printRightNumber(element) {
 
   outputUserNumbers.classList.remove('d-none');
+  outputUserNumbers.classList.add('d-flex', 'flex-column');
 
   let li = document.createElement('li');
 
@@ -132,44 +170,20 @@ function printRightNumber(element) {
 
   li.innerHTML = element;
 
-  outputUserNumbers.append(li);
+  userNumbersList.append(li);
 
 };
 
-// function printerResults(value, index) {
-//   numRandom.includes(value) ? outputUserNumbers.innerHTML = ` <div>${numRandom[index]}</div> ` : outputUserNumbers.innerHTML += '';
-// };
 
+function printResults() {
 
-// let bibi = 0;
-// const timerSimon = setInterval(function() {
-//   containerSimonNumbers.style.display = "none";
-//   bibi++
+  let resultsMessage = document.createElement('p');
 
-//   clearInterval(timerSimon);
-//   console.log(bibi); 
-// }, 500);
+  resultsMessage.classList.add('fs-5', 'fw-bold', 'py-3');
 
+  message = `Hai ricordato ${counterRightNumbers} su ${numTarget}`;
 
+  resultsMessage.innerHTML = message;
 
-
-
-// 8. Creo una variabile messaggio e un counter per quantificare i numeri indovinati
-
-// 9. Creo una funzione che ad ogni prompt verifica se il numero inserito è presente nei numeri random
-//se sì lo includo nel messaggio e aumento il counter
-
-// 10. Stampo il messaggio (il totale di numeri indovinati e quali) in pagina
-
-// 11. Creo un pulsante di avvio gioco
-
-
-
-
-
-
-
-
-
-
-
+  outputUserNumbers.append(resultsMessage);
+};
