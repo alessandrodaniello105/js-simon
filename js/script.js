@@ -21,10 +21,10 @@ while (counterNum < numTarget ) {
 
   
 };
+
 // 4. Stampo i numeri in pagina in un contenitore
 printer2();
 
-console.log(numRandom);
 
 function verifyRandomNumber(num) {
 
@@ -58,3 +58,28 @@ function printer2() {
   };
 
 };
+
+
+// 5. Creo un timer di 5s che farà scomparire il contenitore
+const timer = setInterval(function() {
+  containerSimonNumbers.style.display = "none";
+}, 5000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
