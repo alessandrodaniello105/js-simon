@@ -181,7 +181,7 @@ function printResults() {
 
   resultsMessage.classList.add('fs-5', 'fw-bold', 'py-3');
 
-  message = `Hai ricordato ${counterRightNumbers} su ${numTarget}`;
+  message = `Hai ricordato ${counterRightNumbers} numeri su ${numTarget}!`;
 
   resultsMessage.innerHTML = message;
 
