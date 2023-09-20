@@ -14,13 +14,27 @@
   
   <div class="main-wrapper">
 
-    <div class="container d-flex justify-content-center align-items-center vh-100">
+    <!-- <div class="bg-secondary w-25 text-center text-white">Start Game</div> -->
 
+    <div class="container position-relative d-flex justify-content-center align-items-center vh-100">
+
+      <!-- SIMON NUMBERS -->
       <ul class="list-group w-25 text-center">
+        <strong class="my-3">Simon Numbers</strong>
         <!-- <li class="list-group-item"></li> -->
       </ul>
-      
-      <ul class="list-group w-50 text-center fw-bold d-none" id="user-numbers"></ul>
+      <!-- /SIMON NUMBERS -->
+
+
+      <!-- USER NUMBERS -->
+      <div class="user-numbers-container d-none align-items-center">
+        
+        <p class="fs-3">I tuoi Numeri</p>
+        
+        <ul class="list-group w-50 text-center fw-bold" id="user-numbers"></ul>
+        
+      </div>
+      <!-- USER NUMBERS -->
 
     </div>
 
