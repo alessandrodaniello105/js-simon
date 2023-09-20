@@ -65,13 +65,21 @@ function printer2() {
 
 
 // 5. Creo un timer di 5s che farà scomparire il contenitore
-setTimeout(function() { 
+setTimeout(startGameForNow, 2500); //2.5s for testing
+
+
+function startGameForNow() {
 
   containerSimonNumbers.style.display = "none";
 
   promptNumbers();
 
-}, 2500); //2500ms for testing
+  checkUserNumbers();
+
+};
+
+
+
 
 
 function promptNumbers() {
@@ -85,25 +93,37 @@ function promptNumbers() {
 
     let input = parseInt(prompt('Inserisci SOLO uno dei numeri che ricordi'));
     
-    if (numRandom.includes(input)) {
+    if (numRandom.includes(input) && (!numUser.includes(input))) {
       
       numUser.push(input);
 
     }
 
-
-    printerResults(input);
+    
+    // printerResults(input, counterIteration);
     
   };
-
-  console.log(numUser);
-
+  
+  // console.log(numUser);
+  
 }
 
+function checkUserNumbers() {
 
-function printerResults(value) {
-  numRandom.includes(value) ? outputUserNumbers.innerHTML += ` ${value} ` : outputUserNumbers.innerHTML += '';
+  for (let userEl = 0; userEl < numUser.length; userEl++){
+
+    userNum = numUser[userEl];
+    console.log(userNum);
+  };
+
 };
+
+
+
+
+// function printerResults(value, index) {
+//   numRandom.includes(value) ? outputUserNumbers.innerHTML = ` <div>${numRandom[index]}</div> ` : outputUserNumbers.innerHTML += '';
+// };
 
 
 // let bibi = 0;
