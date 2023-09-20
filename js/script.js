@@ -1,5 +1,6 @@
 //ELEMENTS
 const containerSimonNumbers = document.querySelector('ul');
+const outputUserNumbers     = document.querySelector('p');
 
 // 1. Creo un array che conterrà i numeri generati
 const numRandom = [];
@@ -61,6 +62,29 @@ function printer2() {
 
 
 // 5. Creo un timer di 5s che farà scomparire il contenitore
+setTimeout(function() { 
+
+  containerSimonNumbers.style.display = "none";
+
+  promptNumbers();
+
+}, 2500); //2500ms for testing
+
+
+function promptNumbers() {
+
+  input = parseInt(prompt('Inserisci SOLO uno dei numeri che ricordi'));
+
+  printerResults(input);
+
+}
+
+
+function printerResults(value) {
+  numRandom.includes(value) ? outputUserNumbers.innerHTML = value : outputUserNumbers.innerHTML = 'male male';
+};
+
+
 // let bibi = 0;
 // const timerSimon = setInterval(function() {
 //   containerSimonNumbers.style.display = "none";
@@ -70,17 +94,6 @@ function printer2() {
 //   console.log(bibi); 
 // }, 500);
 
-let bibi = 0;
-setTimeout(function() { 
-  containerSimonNumbers.style.display = "none";
-  bibi++
-  console.log(bibi); 
-
-
-}, 500);
-
-
-// const timer
 
 
 
