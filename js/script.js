@@ -8,22 +8,27 @@ const numTarget = 5;
 let counterNum = 0;
 
 while (counterNum < numTarget ) {
-  
+
   num = randomGen();
   
-  counterNum++;
   // 2. ...con verifica
-  if (numRandom.includes(num)) {
-    counterNum--;
-
-    const numNoNo = [];
-    numNoNo.push(num)
-    num = randomGen();
-  } else {
-
-    numRandom.push(num);
-  }
-
+  verifyRandomNumber();
 
 };
+
 console.log(numRandom);
+
+function verifyRandomNumber() {
+
+  if (numRandom.includes(num)) {
+
+    num = randomGen();
+
+  } else {
+    counterNum++;
+
+    numRandom.push(num);
+
+  }
+  
+}
