@@ -11,3 +11,4 @@ Simon Says
 1. Creo una funzione che ad ogni prompt verifica se il numero inserito è presente nei numeri random
 - se sì lo includo nel messaggio e aumento il counter
 9. Stampo il messaggio (il totale di numeri indovinati e quali) in pagina
+1. Creo un pulsante di avvio gioco
