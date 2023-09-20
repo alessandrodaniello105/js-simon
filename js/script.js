@@ -1,9 +1,12 @@
 //ELEMENTS
 const containerSimonNumbers = document.querySelector('ul');
 const outputUserNumbers     = document.querySelector('p');
+const finalMessage          = 'I numeri che hai indovinato sono:'
 
 // 1. Creo un array che conterrà i numeri generati
 const numRandom = [];
+
+const numUser = [];
 
 // 2. Creo una funzione di generazione randomica di 5 numeri...
 const randomGen = () => Math.ceil(Math.random() * 10);
@@ -73,15 +76,33 @@ setTimeout(function() {
 
 function promptNumbers() {
 
-  input = parseInt(prompt('Inserisci SOLO uno dei numeri che ricordi'));
+  let userChances = 5;
+  let counterIteration = 0;
 
-  printerResults(input);
+  while (counterIteration < userChances) {
+    
+    counterIteration++;
+
+    let input = parseInt(prompt('Inserisci SOLO uno dei numeri che ricordi'));
+    
+    if (numRandom.includes(input)) {
+      
+      numUser.push(input);
+
+    }
+
+
+    printerResults(input);
+    
+  };
+
+  console.log(numUser);
 
 }
 
 
 function printerResults(value) {
-  numRandom.includes(value) ? outputUserNumbers.innerHTML = value : outputUserNumbers.innerHTML = 'male male';
+  numRandom.includes(value) ? outputUserNumbers.innerHTML += ` ${value} ` : outputUserNumbers.innerHTML += '';
 };
 
 
