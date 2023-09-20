@@ -1,6 +1,7 @@
 //ELEMENTS
 const containerSimonNumbers = document.querySelector('ul');
-const outputUserNumbers     = document.querySelector('p');
+// const outputUserNumbers     = document.querySelector('p');
+const outputUserNumbers     = document.getElementById('user-numbers');
 const finalMessage          = 'I numeri che hai indovinato sono:'
 
 // 1. Creo un array che conterrà i numeri generati
@@ -115,14 +116,25 @@ function checkUserNumbers() {
 
     userNum = numUser[userEl];
 
-    console.log(userNum);
+    printRightNumber(userNum);
 
   };
 
 };
 
+function printRightNumber(element) {
 
+  outputUserNumbers.classList.remove('d-none');
 
+  let li = document.createElement('li');
+
+  li.className = 'list-group-item';
+
+  li.innerHTML = element;
+
+  outputUserNumbers.append(li);
+
+};
 
 // function printerResults(value, index) {
 //   numRandom.includes(value) ? outputUserNumbers.innerHTML = ` <div>${numRandom[index]}</div> ` : outputUserNumbers.innerHTML += '';
